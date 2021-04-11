@@ -117,24 +117,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"app.ts":[function(require,module,exports) {
+})({"node_modules/core-js/library/modules/_core.js":[function(require,module,exports) {
+var core = module.exports = { version: '2.6.12' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+},{}],"node_modules/core-js/library/fn/json/stringify.js":[function(require,module,exports) {
+var core = require('../../modules/_core');
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+},{"../../modules/_core":"node_modules/core-js/library/modules/_core.js"}],"node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":[function(require,module,exports) {
+module.exports = require("core-js/library/fn/json/stringify");
+},{"core-js/library/fn/json/stringify":"node_modules/core-js/library/fn/json/stringify.js"}],"app.ts":[function(require,module,exports) {
 "use strict";
 
-var message;
-var counter = 0;
-counter = 'hello';
-var numbers = [0, 1, 2];
-var array = [0, 1, 'text'];
+var _stringify = _interopRequireDefault(require("@babel/runtime-corejs2/core-js/json/stringify"));
 
-function add(x, y) {
-  return x + y;
-} // Contextual Typing
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var game = {
+  title: 'Grand Theft Auto V',
+  genre: 'Action',
+  released: true
+};
+var serializedGame = (0, _stringify.default)(game);
+var gameObj = JSON.parse(serializedGame);
+var input = document.querySelector('.input');
+console.log(input.value);
+var coffeeSize;
 
-window.addEventListener('click', function (e) {
-  console.log(e.clientX);
-});
-},{}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function order(coffee) {
+  return "Ordered ".concat(coffee);
+}
+},{"@babel/runtime-corejs2/core-js/json/stringify":"node_modules/@babel/runtime-corejs2/core-js/json/stringify.js"}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

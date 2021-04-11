@@ -1,16 +1,23 @@
-let message: string;
+// Type assertion
+type Game = { title: string; genre: string; released: boolean }
 
-let counter = 0;
-counter = 'hello';
-
-const numbers = [0, 1, 2];
-const array = [0, 1, 'text'];
-
-function add(x: number, y: number): number {
-  return x + y;
+const game: Game = { 
+  title: 'Grand Theft Auto V',
+  genre: 'Action',
+  released: true,
 }
 
-// Contextual Typing
-window.addEventListener('click', e => {
-  console.log(e.clientX);
-})
+const serializedGame = JSON.stringify(game);
+
+const gameObj = JSON.parse(serializedGame) as Game;
+
+const input = document.querySelector('.input') as HTMLInputElement;
+console.log(input.value);
+
+// Type aliases
+type CoffeeSize = "medium" | "large";
+let coffeeSize: CoffeeSize;
+
+function order(coffee: CoffeeSize): string {
+  return `Ordered ${coffee}`;
+}
