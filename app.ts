@@ -1,54 +1,16 @@
-let coffeeSize: "medium" | "large";
+let message: string;
 
-coffeeSize = "medium";
-coffeeSize = "small";
+let counter = 0;
+counter = 'hello';
 
-let stringOrNumber: string | number;
-stringOrNumber = 255;
-stringOrNumber = "max";
+const numbers = [0, 1, 2];
+const array = [0, 1, 'text'];
 
-type doubleAnything = string | number
-
-function double(value: doubleAnything): number {
-  if(typeof value === "string") {
-    return  Number(value) * 2;
-  }
-
-  return value * 2;
+function add(x: number, y: number): number {
+  return x + y;
 }
 
-type maybeValue = string | undefined;
-
-let valueFromDOM;
-
-function show(value: maybeValue): maybeValue {
-  return value;
-}
-
-show(valueFromDOM);
-
-interface Knife {
-  slice(): string;
-}
-
-interface Scissors {
-  cut(): string;
-}
-
-type multiTool = Knife & Scissors;
-
-function useTool(tool: multiTool): void {
-  tool.cut();
-  tool.slice();
-}
-
-const swissArmyKnife: multiTool = {
-  slice() {
-    return 'slice!'
-  },
-  cut() {
-    return 'cut!'
-  },
-}
-
-useTool(swissArmyKnife);
+// Contextual Typing
+window.addEventListener('click', e => {
+  console.log(e.clientX);
+})

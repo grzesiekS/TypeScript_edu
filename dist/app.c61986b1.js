@@ -120,43 +120,20 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"app.ts":[function(require,module,exports) {
 "use strict";
 
-var coffeeSize;
-coffeeSize = "medium";
-coffeeSize = "small";
-var stringOrNumber;
-stringOrNumber = 255;
-stringOrNumber = "max";
+var message;
+var counter = 0;
+counter = 'hello';
+var numbers = [0, 1, 2];
+var array = [0, 1, 'text'];
 
-function double(value) {
-  if (typeof value === "string") {
-    return Number(value) * 2;
-  }
+function add(x, y) {
+  return x + y;
+} // Contextual Typing
 
-  return value * 2;
-}
 
-var valueFromDOM;
-
-function show(value) {
-  return value;
-}
-
-show(valueFromDOM);
-
-function useTool(tool) {
-  tool.cut();
-  tool.slice();
-}
-
-var swissArmyKnife = {
-  slice: function slice() {
-    return 'slice!';
-  },
-  cut: function cut() {
-    return 'cut!';
-  }
-};
-useTool(swissArmyKnife);
+window.addEventListener('click', function (e) {
+  console.log(e.clientX);
+});
 },{}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
