@@ -1,17 +1,23 @@
-// Parameter types
-type Song = { title: string, duration: number, genre: string };
-const songObject = { title: "Eye of the tiger", duration: 213, genre: "rock" };
+let numberToText: (num: number) => string;
 
-function play(song: Song): string {
-  return `Playing now: ${song.title}`
+numberToText = (num) => num.toString();
+numberToText(5);
+console.log(typeof numberToText(5));
+
+type Song = { id: number; title: string; duration: number; genre: string}
+
+const songs = [
+  { id: 1, title: 'Eye of the tiger', duration: 246, genre: 'rock'},
+  { id: 2, title: 'Carry On Wayward Son', duration: 283, genre: 'rock'},
+]
+
+type updateSong = (id: number, data: Song) => void | boolean
+
+const update: updateSong = (songId, data) => {
+  const index = songs.findIndex(({ id }) => id === songId);
+  if(index > -1) {
+    songs[index] = data;
+  }
+
+  return false;
 }
-
-play(songObject);
-
-// Optional parameters
-function addToPlayList(song: Song, playList = "Default"):string {
-  console.log(`Added ${song.title} to playlist: ${playList}`);
-  return `Added ${song.title} to playlist: ${playList}`;
-}
-
-addToPlayList(songObject, 'Top100');
