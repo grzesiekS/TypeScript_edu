@@ -1,23 +1,22 @@
-let numberToText: (num: number) => string;
+// Any type
+let password: any;
+password = 1234;
 
-numberToText = (num) => num.toString();
-numberToText(5);
-console.log(typeof numberToText(5));
+password='test';
 
-type Song = { id: number; title: string; duration: number; genre: string}
+function reverse(input: string | any[]) {};
 
-const songs = [
-  { id: 1, title: 'Eye of the tiger', duration: 246, genre: 'rock'},
-  { id: 2, title: 'Carry On Wayward Son', duration: 283, genre: 'rock'},
-]
+// Void type
 
-type updateSong = (id: number, data: Song) => void | boolean
+const message = 'I know your password, bro!';
 
-const update: updateSong = (songId, data) => {
-  const index = songs.findIndex(({ id }) => id === songId);
-  if(index > -1) {
-    songs[index] = data;
-  }
+const show = (messageInput: string): void => {
+  console.log(messageInput);
+}
 
-  return false;
+show(message);
+
+// Never type
+function error(messageInput: string): never {
+  throw new Error(messageInput);
 }
