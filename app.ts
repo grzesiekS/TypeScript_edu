@@ -1,23 +1,17 @@
-// Type assertion
-type Game = { title: string; genre: string; released: boolean }
+// Parameter types
+type Song = { title: string, duration: number, genre: string };
+const songObject = { title: "Eye of the tiger", duration: 213, genre: "rock" };
 
-const game: Game = { 
-  title: 'Grand Theft Auto V',
-  genre: 'Action',
-  released: true,
+function play(song: Song): string {
+  return `Playing now: ${song.title}`
 }
 
-const serializedGame = JSON.stringify(game);
+play(songObject);
 
-const gameObj = JSON.parse(serializedGame) as Game;
-
-const input = document.querySelector('.input') as HTMLInputElement;
-console.log(input.value);
-
-// Type aliases
-type CoffeeSize = "medium" | "large";
-let coffeeSize: CoffeeSize;
-
-function order(coffee: CoffeeSize): string {
-  return `Ordered ${coffee}`;
+// Optional parameters
+function addToPlayList(song: Song, playList = "Default"):string {
+  console.log(`Added ${song.title} to playlist: ${playList}`);
+  return `Added ${song.title} to playlist: ${playList}`;
 }
+
+addToPlayList(songObject, 'Top100');
