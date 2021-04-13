@@ -1,15 +1,18 @@
 class Movie {
-  static type = "movie";
 
-  genre: string;
+  constructor(private title: string) {}
 
-  constructor(private readonly title: string, genre: string) {
-    this.genre = genre;
+  get movieTitle(): string {
+    return this.title.toUpperCase();
   }
 
-  getTitle(): string {
-    return this.title;
+  set movieTitle(title: string) {
+    this.title = title;
   }
 }
 
-console.log(Movie.type);
+const bestMovieEver = new Movie("Kickboxer");
+console.log(bestMovieEver.movieTitle);
+
+bestMovieEver.movieTitle = "Lord of the Ring";
+console.log(bestMovieEver.movieTitle);
