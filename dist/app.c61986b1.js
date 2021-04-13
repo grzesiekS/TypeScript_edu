@@ -377,9 +377,10 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpe
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Movie = /*#__PURE__*/function () {
-  function Movie(title) {
+  function Movie(title, genre) {
     (0, _classCallCheck2.default)(this, Movie);
     this.title = title;
+    this.genre = genre;
   }
 
   (0, _createClass2.default)(Movie, [{
@@ -391,8 +392,8 @@ var Movie = /*#__PURE__*/function () {
   return Movie;
 }();
 
-var bestMovieEver = new Movie("Peaceful Warrior");
-bestMovieEver.getTitle();
+Movie.type = "movie";
+console.log(Movie.type);
 },{"@babel/runtime-corejs2/helpers/classCallCheck":"node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js","@babel/runtime-corejs2/helpers/createClass":"node_modules/@babel/runtime-corejs2/helpers/createClass.js"}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

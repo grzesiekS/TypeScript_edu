@@ -1,12 +1,15 @@
 class Movie {
+  static type = "movie";
 
-  constructor(private title: string) {}
+  genre: string;
+
+  constructor(private readonly title: string, genre: string) {
+    this.genre = genre;
+  }
 
   getTitle(): string {
     return this.title;
   }
 }
 
-const bestMovieEver = new Movie("Peaceful Warrior");
-
-bestMovieEver.getTitle();
+console.log(Movie.type);
