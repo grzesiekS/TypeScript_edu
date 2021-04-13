@@ -1,22 +1,12 @@
-// Any type
-let password: any;
-password = 1234;
+class Movie {
 
-password='test';
+  constructor(private title: string) {}
 
-function reverse(input: string | any[]) {};
-
-// Void type
-
-const message = 'I know your password, bro!';
-
-const show = (messageInput: string): void => {
-  console.log(messageInput);
+  getTitle(): string {
+    return this.title;
+  }
 }
 
-show(message);
+const bestMovieEver = new Movie("Peaceful Warrior");
 
-// Never type
-function error(messageInput: string): never {
-  throw new Error(messageInput);
-}
+bestMovieEver.getTitle();
