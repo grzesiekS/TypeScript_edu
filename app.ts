@@ -41,3 +41,24 @@ interface Admin extends User {
 interface Superadmin extends Admin, User {
   godmode: boolean
 }
+
+// Duck typing // structural typing
+interface Readable {
+  pages: number
+}
+
+interface Book {
+  pages: number,
+  title: string
+}
+
+const book: Book = {
+  pages: 5,
+  title: 'Lord of the Rings'
+}
+
+function read(something: Readable): string {
+  return `Started reading ${something.pages} pages`;
+}
+
+read(book);

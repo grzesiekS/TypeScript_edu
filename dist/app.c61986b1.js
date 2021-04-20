@@ -130,6 +130,16 @@ info({
   name: 'Adam',
   email: 'adam@wp.pl'
 });
+var book = {
+  pages: 5,
+  title: 'Lord of the Rings'
+};
+
+function read(something) {
+  return "Started reading ".concat(something.pages, " pages");
+}
+
+read(book);
 },{}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
