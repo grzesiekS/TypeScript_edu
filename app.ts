@@ -1,13 +1,17 @@
 interface Playable {
   name: string,
-  play?(): string
+  play(): string
 }
 
-interface Play {
-  (media: Playable): string
+class Movie implements Playable {
+  constructor(public name: string) {}
+
+  play(): string {
+    return `Playing ${this.name}`
+  }
 }
 
-const playMedia: Play = function play(media: Playable): string {
+function play(media: Playable): string {
   if(media.play) {
     console.log(media.play());
     return media.play();
@@ -16,11 +20,6 @@ const playMedia: Play = function play(media: Playable): string {
   return `Can't play ${media.name}`;
 }
 
-const movie: Playable = {
-  name: 'Lord of the Rings',
-  play() {
-    return `Playing ${this.name}`
-  },
-}
+const movie: Playable = new Movie('Lord of the Rings');
 
-playMedia(movie);
+play(movie);
