@@ -120,26 +120,23 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"app.ts":[function(require,module,exports) {
 "use strict";
 
-function show(player) {}
+var playMedia = function play(media) {
+  if (media.play) {
+    console.log(media.play());
+    return media.play();
+  }
 
-function play(game) {}
-
-function info(user) {}
-
-info({
-  name: 'Adam',
-  email: 'adam@wp.pl'
-});
-var book = {
-  pages: 5,
-  title: 'Lord of the Rings'
+  console.log("Can't play ".concat(media.name));
+  return "Can't play ".concat(media.name);
 };
 
-function read(something) {
-  return "Started reading ".concat(something.pages, " pages");
-}
-
-read(book);
+var movie = {
+  name: 'Lord of the Rings',
+  play: function play() {
+    return "Playing ".concat(this.name);
+  }
+};
+playMedia(movie);
 },{}],"C:/Users/grzes/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
