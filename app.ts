@@ -1,18 +1,43 @@
-class Movie {
-
-  constructor(private title: string) {}
-
-  get movieTitle(): string {
-    return this.title.toUpperCase();
-  }
-
-  set movieTitle(title: string) {
-    this.title = title;
-  }
+// Type aliases vs Interface
+type Player = {
+  name: string
 }
 
-const bestMovieEver = new Movie("Kickboxer");
-console.log(bestMovieEver.movieTitle);
+function show(player: Player): void {}
 
-bestMovieEver.movieTitle = "Lord of the Ring";
-console.log(bestMovieEver.movieTitle);
+interface Game {
+  name: string
+}
+
+function play(game: Game): void {}
+
+// Computed properties
+type Types = 'finite' | 'infinite';
+
+type Games = {
+  [type in Types]: string
+}
+
+// Merge
+interface User {
+  name: string
+}
+
+interface User {
+  email: string
+}
+
+function info(user: User): void {}
+
+info({ name: 'Adam', email: 'adam@wp.pl' });
+
+// Extends
+
+interface Admin extends User {
+  is_admin: boolean
+  specialpowers?: boolean
+}
+
+interface Superadmin extends Admin, User {
+  godmode: boolean
+}
